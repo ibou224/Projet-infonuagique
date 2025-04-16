@@ -3,6 +3,13 @@ from pydantic import BaseModel
 import joblib
 import pandas as pd
 
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Charger le modèle sauvegardé
 model = joblib.load("random_forest_model.pkl")
